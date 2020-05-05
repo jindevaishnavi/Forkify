@@ -1,4 +1,5 @@
 import Search from './models/Search';
+import Recipe from './models/Recipe';
 import * as searchView from './views/searchView';
 import { elements, renderLoader,clearLoader } from './views/base';
 
@@ -9,6 +10,9 @@ import { elements, renderLoader,clearLoader } from './views/base';
  --> liked recipes
 state will be made persistent for later
 
+ */
+/**
+ * SEARCH CONTROLLER
  */
 const state = {};
 const controlSearch = async () => {
@@ -52,3 +56,11 @@ if(btn)
 //controller all controllers are in index.js and is easier to put them in one
 //what is the state of out website,current moment, all the data has to be at one object ,Redux : state management library 
 // in redux its called store
+/**RECIPE CONTROLLER */
+const controlRecipe = () => {
+    const id = window.location.hash;
+    console.log(id);
+};
+
+
+window.addEventListener('hashchange',controlRecipe);

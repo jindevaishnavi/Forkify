@@ -1,0 +1,14 @@
+{
+    "presets" : [
+        ["env",//which environment we want it to work in 
+        {
+            "targets" : {
+                "browsers" : [
+                    "last 5 versions",
+                    "ie >= 8"
+                ]
+            }
+        }
+    ]
+    ]
+}
