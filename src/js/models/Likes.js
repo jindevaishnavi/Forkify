@@ -9,8 +9,11 @@ export default class Likes {
             title,
             author,
             img
-        }
+        };
         this.likes.push(like);
+        //Persist the data in local storage
+        this.persistData();
+
         return like;
     }
     deleteLike(id)
@@ -23,6 +26,17 @@ export default class Likes {
        return this.likes.findIndex(el => el.id === id) !== -1; 
     }
     getNumLikes() {
-        return likes.length;
+        return this.likes.length;
+    }
+    persistData(){
+        localStorage.setItem('likes',JSON.stringify(this.likes));
+    }
+    readStorage() {
+        const storage = JSON.parse(localStorage.getItem('likes'));
+        //restore the likes from local storage
+        if(storage)
+        {
+            this.likes = storage;
+        }
     }
 }
